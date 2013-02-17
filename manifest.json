@@ -1,0 +1,38 @@
+{
+   "background": {
+      "page": "background.html"
+   },
+   "content_scripts": [ {
+      "js": [ "js/jquery.js", "js/profiles/basecamp.js" ],
+      "matches": [ "https://basecamp.com/*" ]
+   }, {
+      "js": [ "js/jquery.js", "js/profiles/trello.js" ],
+      "matches": [ "https://trello.com/*" ]
+   }, {
+     "js": [ "js/jquery.js", "js/profiles/jira-issue.js" ],
+     "matches": [ "https://*.jira.com/browse/*" ]
+  }   , {
+     "js": [ "js/jquery.js", "js/profiles/jira-rapidboard.js" ],
+     "matches": [ "https://*.jira.com/secure/RapidBoard*" ]
+  }   , {
+     "js": [ "js/jquery.js", "js/profiles/jira-issues.js" ],
+     "matches": [ "https://*.jira.com/issues/*" ]
+  }],
+   "content_security_policy": "script-src 'self' https://*.harvestapp.com; script-src 'self' https://*.harvestapp.dev; object-src 'self'",
+   "description": "Add Harvest time tracking to popular web apps.",
+   "icons": {
+      "128": "images/harvest_chrome_icon.png",
+      "16": "images/harvest_chrome_icon.png",
+      "48": "images/harvest_chrome_icon.png"
+   },
+   "manifest_version": 2,
+   "name": "Harvest Time Tracker",
+   "page_action": {
+      "default_icon": "images/page_action.gif",
+      "default_popup": "popup.html",
+      "default_title": "Harvest Time Tracker"
+   },
+   "permissions": [ "https://basecamp.com/*", "https://trello.com/*", "https://*.jira.com/*", "https://*.harvestapp.com/*", "tabs" ],
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "1.0.0"
+}
